@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- Arguments -->
+  <arg name="world" default="$(find-pkg-share erl1)/worlds/my_world.sdf"/>
+  <arg name="rviz_config" default="tracker.rviz"/>
+
+  <include file="$(find-pkg-share ex_assignment1)/launch/gazebo_env.launch.py"/>
+
+  <include file="$(find-pkg-share bme_gazebo_sensors)/launch/spawn_robot.launch.py">
+    <arg name="rviz_config" value="$(var rviz_config)"/>
+    <arg name="rviz" value="true"/>
+  </include>
+
+  <include file="$(find-pkg-share aruco_opencv)/launch/aruco_tracker.launch.xml"/>
+</launch>

@@ -8,17 +8,14 @@ def generate_launch_description():
 
     pkg_ex_assignment1 = get_package_share_directory("ex_assignment1")
     pkg_sensors = get_package_share_directory("bme_gazebo_sensors")
-
-    # Absolute path to your NON-ROS aruco folder
-    aruco_path = "~/gz_ros2_aruco_ws/src/ros2-gazebo-aruco/gz-world/aruco_box"
-
+    pkg_markers = get_package_share_directory("aruco_marker_gazebo")
     # ---------------------------------------------
     # Extend MODEL PATH
     # ---------------------------------------------
     model_paths = [
         os.path.join(pkg_ex_assignment1, "models"),
         os.path.join(pkg_sensors, "models"),
-        aruco_path,  # <-- USE ABSOLUTE PATH
+        os.path.join(pkg_markers, "models"),
         os.environ.get("GAZEBO_MODEL_PATH", "")
     ]
 

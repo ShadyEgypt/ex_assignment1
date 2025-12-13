@@ -2,7 +2,7 @@
 
   <!-- Arguments -->
   <arg name="world" default="$(find-pkg-share erl1)/worlds/my_world.sdf"/>
-  <arg name="rviz_config" default="tracker.rviz"/>
+  <arg name="rviz_config" default="assignment.rviz"/>
 
   <include file="$(find-pkg-share ex_assignment1)/launch/gazebo_env.launch.py"/>
 
@@ -12,4 +12,15 @@
   </include>
 
   <include file="$(find-pkg-share aruco_opencv)/launch/aruco_tracker.launch.xml"/>
+
+  <node pkg="ex_assignment1"
+        exec="image_modifier"
+        name="image_modifier"
+        output="screen"/>
+
+  <!-- Action Server -->
+  <node pkg="ex_assignment1"
+        exec="action_server"
+        name="servo_marker_server"
+        output="screen"/>
 </launch>

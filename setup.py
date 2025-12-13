@@ -16,7 +16,6 @@ setup(
         # Install launch files
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.xml')),
-
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -28,6 +27,12 @@ setup(
         'test': ['pytest'],
     },
     entry_points={
-        'console_scripts': [],
+        'console_scripts': [
+            'observer = ex_assignment1.observer:main',
+            'action_client = ex_assignment1.action_client:main',
+            'action_server = ex_assignment1.action_server:main',
+            'searcher = ex_assignment1.searcher:main',
+            'image_modifier = ex_assignment1.image_modifier:main',
+            ],
     },
 )

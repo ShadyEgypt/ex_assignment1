@@ -182,7 +182,7 @@ def execute_callback(self, goal_handle: ServoMarker.Goal):
                 # Stop and transition to pause
                 self._stop_robot()
                 self.pause_start_time = now
-                self.backward_target = mz + 0.5
+                self.backward_target = 0.5
 
                 reason = (
                     "Laser obstacle"
